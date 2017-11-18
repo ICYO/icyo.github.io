@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Raiden</title>
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+        <style>
+        * {margin: 0;padding: 0;}
+        body {width:100%;}
+        #main {
+            width:100%;
+            height:100%;
+            position: fixed;
+        }
+        </style>
+        <script src="/raiden/script/basic.js"></script>
+    </head>
+    <body ondragstart="void(0);">
+        <div id="main"><!-- 游戏界面 --></div>
+    </body>
+    <script>
+    document.body.style.height = window.screen.availHeight+"px";
+    </script>
+
+    <script id="shoot-worker-a" type="javascript/worker">
+        self.onmessage = function(evt) {
+            var m = Math.abs(evt.data.ix - evt.data.cx);
+            var n = Math.abs(evt.data.iy - evt.data.cy);
+            var swap = Math.pow(m, 2) + Math.pow(n, 2);
+            var dist = Math.sqrt(swap);
+            self.postMessage({
+                dist: dist,
+                left: evt.data.left,
+                top: evt.data.top,
+                vid: evt.data.vid
+            });
+        }
+    </script>
+    <script src="/raiden/script/scenes.js"></script>
+    <script src="/raiden/script/interface.js"></script>
+    <script src="/raiden/script/main.js"></script>
+</html>

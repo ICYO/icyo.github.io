@@ -72,7 +72,7 @@ body {
 .msgbox {
     float: left;
     width: 19cm;
-    padding: .6cm 1cm .6cm 1cm;
+    padding: .5cm 1cm .5cm 1cm;
 }
 .msg-title, .msg-content {
     float: left;
@@ -105,7 +105,7 @@ body {
 .msg-content {
     font-weight: normal;
     color: #555;
-    font-size: .9rem;
+    font-size: 1rem;
     padding: .5cm 0 0 0;
 }
 .msg-content * {
@@ -119,4 +119,24 @@ body {
     margin-right: 2rem;
     list-style: none;
     color: #222;
+}
+
+.exp-content-once {
+    margin-bottom: 10px;
+}
+.exp-content em {
+    display: block;
+    width: 18.5cm;
+    line-height: 1.5rem;
+    font-size: .9rem;
+    color: #444;
+    word-wrap:break-word;
+    text-indent: 2rem;
+}
+.skill-content p {
+    display: block;
+    width: 100%;
+    line-height: 1.5rem;
+    word-wrap:break-word;
+    margin-bottom: 10px;
 }
