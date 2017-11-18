@@ -140,3 +140,10 @@ body {
     word-wrap:break-word;
     margin-bottom: 10px;
 }
+.skill-content p a {
+    float: none;
+    line-height: 1.5rem;
+    word-wrap:break-word;
+    color: blue;
+    margin-bottom: 10px;
+}

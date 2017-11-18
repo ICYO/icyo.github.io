@@ -1,4 +1,4 @@
-(function() {
+function Gameinit() {
     "use strict";
     /**
      * 将 层 注册为 Canvas
@@ -258,4 +258,28 @@
         });
     }, 2000);
 
-})()
+}
+(function() {
+    var img = new Array();
+    img.push("/raiden/static/image/back3.jpg");
+    img.push("/raiden/static/image/boom.png");
+    img.push("/raiden/static/image/craft-main.png");
+    img.push("/raiden/static/image/alien1.png");
+    var swap = new Image()
+    swap.src = img[0];
+    swap.onload = function(_) {
+        var swap = new Image()
+        swap.src = img[1];
+        swap.onload = function(_) {
+            var swap = new Image()
+            swap.src = img[2];
+            swap.onload = function(_) {
+                var swap = new Image()
+                swap.src = img[3];
+                swap.onload = function(_) {
+                    Gameinit();
+                }
+            }
+        }
+    }
+}());
