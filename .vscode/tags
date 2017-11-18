@@ -4,7 +4,15 @@
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	0.0.0	//
-basepath	../skitware/bin/new.py	/^basepath=$(cd `dirname $0`; pwd);$/;"	kind:variable	line:4
-new.py	../skitware/bin/new.py	1;"	kind:file	line:1
-sharefile	../skitware/bin/new.py	/^sharefile=${sharepath}"newcontent.html"$/;"	kind:variable	line:7
-sharepath	../skitware/bin/new.py	/^sharepath=${basepath}"\/..\/share\/"$/;"	kind:variable	line:5
+basepath	../.skitware/bin/new	/^basepath = os.path.split(os.path.realpath(__file__))[0]$/;"	kind:variable	line:10
+html	../.skitware/bin/new	/^html = swaphtml_txt.replace('{decare}', title)$/;"	kind:variable	line:16
+makepath	../.skitware/bin/new	/^def makepath(path):$/;"	kind:function	line:18
+new	../.skitware/bin/new	1;"	kind:file	line:1
+path	../.skitware/bin/new	/^path = sys.argv[1]$/;"	kind:variable	line:7
+realfile	../.skitware/bin/new	/^realfile = open(path+"\/index.html", 'w')$/;"	kind:variable	line:29
+realfile	../.skitware/bin/new	/^realfile = open(path+"\/script\/main.js", 'w')$/;"	kind:variable	line:36
+realfile	../.skitware/bin/new	/^realfile = open(path+"\/style\/main.css", 'w')$/;"	kind:variable	line:33
+sharepath	../.skitware/bin/new	/^sharepath = basepath + "\/..\/share\/newcontent.html"$/;"	kind:variable	line:11
+swaphtml	../.skitware/bin/new	/^swaphtml = open(sharepath, 'r')$/;"	kind:variable	line:12
+swaphtml_txt	../.skitware/bin/new	/^swaphtml_txt = swaphtml.read()$/;"	kind:variable	line:13
+title	../.skitware/bin/new	/^title = sys.argv[2]$/;"	kind:variable	line:8
