@@ -1,0 +1,38 @@
+#!/bin/env python3
+# -*- coding:utf-8 -*-
+import os, sys, re
+if (len(sys.argv) < 3):
+    print("参数错误: 请指定目录和主题")
+    exit(0)
+path = sys.argv[1]
+title = sys.argv[2]
+# get html model
+basepath = os.path.split(os.path.realpath(__file__))[0]
+sharepath = basepath + "/../share/newcontent.html"
+swaphtml = open(sharepath, 'r')
+swaphtml_txt = swaphtml.read()
+swaphtml.close()
+
+html = swaphtml_txt.replace('{decare}', title)
+
+def makepath(path):
+    if (not os.path.exists(path)):
+        os.makedirs(path)
+    return True
+
+print("making basic directory...")
+makepath(path + "/style")
+makepath(path + "/script")
+makepath(path)
+print("making basic files...")
+# index.html
+realfile = open(path+"/index.html", 'w')
+realfile.write(html)
+realfile.close()
+# main.css
+realfile = open(path+"/style/main.css", 'w')
+realfile.close()
+# main.js
+realfile = open(path+"/script/main.js", 'w')
+realfile.close()
+print("done!")
