@@ -10,20 +10,30 @@ document.addEventListener("DOMContentLoaded", function(event) {
         return new Blob([u8arr], {type:mime});
     }
 
+    function diasuccess() {
+        var dia = document.getElementById("diasuccess");
+        dia.style.display = "block";
+        setTimeout(function() {
+            dia.style.display = "none";
+        }, 2000);
+    }
+
     var btn = document.getElementById("download-image");
     var dom = document.getElementById("main");
     btn.addEventListener("click", function(event) {
+        scrollTo(0,0);
+        diasuccess();
         html2canvas(dom).then(function(canvas) {
-            document.body.appendChild(canvas);
+            console.log(canvas);
             try {
-                var blob = dataURLtoBlob(canvas.toDataURL('image/png', 1))
+                var cvsurl = canvas.toDataURL('image/png', 1);
+                var blob = dataURLtoBlob(cvsurl)
             } catch(e) {
                 alert(e);
             }
             var aLink = document.createElement('a');
             aLink.download = "resume.png";
             aLink.href = URL.createObjectURL(blob);
-            alert(aLink.href);
             aLink.click();
         });
     });
