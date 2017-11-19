@@ -1,6 +1,13 @@
 "use strict"
 
 document.addEventListener("DOMContentLoaded", function(event) {
+    var real_head = new Image();
+    real_head.src = "/resource/resume/head.png";
+    real_head.onload = function(e) {
+        var head_box = document.querySelector(".info-box-right");
+        head_box.innerText = "";
+        head_box.appendChild(real_head);
+    }
     function dataURLtoBlob(dataurl) {
         var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
             bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
