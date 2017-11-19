@@ -1,6 +1,19 @@
 "use strict"
 
 document.addEventListener("DOMContentLoaded", function(event) {
+    if (document.body.clientWidth < 600) {
+        var link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        link.href="/resume/style/mobile.css";
+        document.head.appendChild(link);
+    } else {
+        var link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        link.href="/resume/style/main.css";
+        document.head.appendChild(link);
+    }
 
     function dataURLtoBlob(dataurl) {
         var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],

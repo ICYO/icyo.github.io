@@ -6,45 +6,42 @@
 body {
     width: 100%;
     height: auto;
-    background: #EEE;
+    background: #FFF;
 }
 #main {
-    width: 21cm;
-    min-height: 29.7cm;
-    background: rgb(255,255,255);
-    margin: 0 auto;
-    z-index: 3
+    width: 100%;
+    height: auto;
 }
 .top-bar {
     float: left;
-    margin-top: .4cm;
+    margin-top: .3cm;
     width: 100%;
-    height: .8cm;
+    height: .7cm;
     background: #254665;
     z-index: 1;
 }
 .top-bar span {
     float: left;
-    margin-left: 3rem;
+    margin-left: 2rem;
     width: 10px;
     height: 100%;
     background: white;
 }
 .info-box {
     float: left;
-    width: 19cm;
-    margin: .3cm 1cm auto 1cm;
-    height: 4cm;
+    width: 90%;
+    margin: .2cm 5% auto 5%;
+    height: auto;
 }
 .info-box-left {
     float: left;
-    width: 15cm;
+    width: auto;
     height: 100%;
     color: #254665;
 }
 .info-box h1 {
     font-weight: normal;
-    font-size: 30px;
+    font-size: 25px;
 }
 .info-box b {
     display: block;
@@ -55,27 +52,24 @@ body {
 }
 .info-box p {
     display: block;
-    margin-top: .4cm;
     font-size: .9rem;
-    height: 2rem;
     line-height: 2rem;
     color: #666;
 }
 .info-box-right {
     float: left;
-    width: 4cm;
+    width: 90%;
     height: 4cm;
 }
 .info-box-right img {
     width: 2.8cm;
     height: 3.5cm;
-    margin: .15cm .5cm;
     border: 2px solid #EEE;
 }
 .msgbox {
     float: left;
-    width: 19cm;
-    padding: .5cm 1cm .5cm 1cm;
+    width: 90%;
+    padding: .5cm 5% .5cm 5%;
 }
 .msg-title, .msg-content {
     float: left;
@@ -85,23 +79,24 @@ body {
 }
 .msg-title p {
     float: left;
-    width: 17.3cm;
-    height: 1cm;
+    width: 80%;
+    height: 25px;
     font-size: 18px;
     font-weight: bold;
-    line-height: .8cm;
+    line-height: 25px;
     margin-left: 10px;
     border-bottom: 1px solid #254665;
 }
 .msg-icon {
     float: left;
-    width: .8cm;
-    height: .8cm;
+    width: 25px;
+    height: 25px;
+    font-size: 15px;
     border-radius: 50%;
     background: #254665;
     text-align: center;
     vertical-align: middle;
-    line-height: .8cm;
+    line-height: 25px;
     color: white;
     font-weight: bold;
 }
@@ -115,21 +110,20 @@ body {
     float: left;
 }
 .jobwanted-content li {
-    margin-right: 2rem;
+    margin-right: 1rem;
     list-style: none;
 }
 .exp-content li {
-    margin-right: 2rem;
+    margin-right: 1rem;
     list-style: none;
     color: #222;
 }
-
 .exp-content-once {
     margin-bottom: 10px;
 }
 .exp-content em {
     display: block;
-    width: 18.5cm;
+    width: 100%;
     line-height: 1.5rem;
     font-size: .9rem;
     color: #444;
@@ -142,6 +136,7 @@ body {
     line-height: 1.5rem;
     word-wrap:break-word;
     margin-bottom: 10px;
+    border-bottom: 1px solid #AAA;
 }
 .skill-content p a {
     float: none;
@@ -166,8 +161,4 @@ body {
     text-align: center;
     cursor: pointer;
     z-index: 2;
-}
-#download-image:hover {
-    background: #254665;
-    color: white;
 }
