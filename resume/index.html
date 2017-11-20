@@ -10,11 +10,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
         <title>RESUME | A4</title>
         <script>
-        if (window.screen.width < 600) {
-            window.location.href = "/resume/mobile.html";
-        }
+        (function() {
+            var link = document.createElement("link");
+            link.setAttribute("rel", "stylesheet");
+            link.setAttribute("type", "text/css");
+            if (window.screen.width < 600) {
+                link.href = "/resume/style/mobile.css";
+            } else {
+                link.href = "/resume/style/main.css";
+            }
+            document.head.appendChild(link);
+        }());
         </script>
-        <link rel="stylesheet" type="text/css" href="/resume/style/main.css" />
+        <!-- <link rel="stylesheet" type="text/css" href="/resume/style/main.css" /> -->
         <script type="text/javascript" src="/resume/script/html2canvas.min.js"></script>
         <script type="text/javascript" src="/resume/script/main.js"></script>
     </head>
