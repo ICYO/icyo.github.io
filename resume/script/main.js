@@ -1,4 +1,6 @@
-"use strict"
+"use strict";
+console.log("%c真爱生命,拒绝IE8", "color:#00FF7F;");
+console.log("%c联系电话：%c13234058382", "color:#7B68EE;", "color:#00FF7F;");
 
 document.addEventListener("DOMContentLoaded", function(event) {
     var real_head = new Image();
@@ -24,6 +26,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
             dia.style.display = "none";
         }, 2000);
     }
+
+    var logArray = document.querySelectorAll(".msg-icon");
+    // console.log(logArray);
+    logArray.forEach(function(value, index, array) {
+        value.addEventListener("click", function(event) {
+            var mid = this.id;
+            window.location.href = "#"+mid;
+        });
+    })
 
     var btn = document.getElementById("download-image");
     var dom = document.getElementById("main");
