@@ -33,3 +33,10 @@
     font-size: 20px;
     line-height: 80px;
 }
+#wiki-body {
+    float: left;
+    width: 96%;
+    height: auto;
+    padding: 0 2%;
+    background: #fff;
+}
