@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family:"Microsoft YaHei", -apple-system, BlinkMacSystemFont,"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans","Helvetica Neue", sans-serif;
+}
+*::selection { background:#ADD8E6; color:white;}
+*::-moz-selection { background:#ADD8E6; color:white;}
+body {
+    width: 100%;
+    height: auto;
+    background: #EEE;
+}
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
+
+#wikibar {
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 36px;
+    font-size: 12px;
+    background: #303030 !important;
+    text-align: left;
+    z-index: 99999;
+}
+#wikibar-dock {
+    width: 930px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 15px 0 15px;
+}
+#wikibar-dock li {
+    float: left;
+    list-style: none;
+    position: relative;
+    top:0;
+    left:0;
+}
+#wikibar-dock li a {
+    float: left;
+    position: relative;
+    display: block;
+    height: 36px;
+    top:0;
+    left:0;
+}
+#wikibar-dock .wikidock-left li:not(:first-child) a:hover {
+    background: rgb(100, 100, 100);
+}
+#wikibar-dock .wikidock-right li a:hover {
+    background: rgb(100, 100, 100);
+}
+
+#wikibar-dock li a span {
+    float: left;
+    position: relative;
+    left:0;
+    top: 10px;
+    padding: 0 5px 0 5px;
+    font-size: 93%;
+    width: auto;
+    height: 16px;
+    color: #fff;
+    border-right: 1px solid #666;
+}
+#wikibar-dock ul li:last-child a span {
+    border:0;
+}
+.wikibar-logo {
+    width: 36px;
+    height: 36px;
+    background: url(/resource/wiki/index/drink2.png) no-repeat center center;
+}
+.wikibar-logo a {
+    width: 36px;
+}
