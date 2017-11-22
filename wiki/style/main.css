@@ -18,7 +18,50 @@ body {
     width: 100%;
     height: 36px;
     font-size: 12px;
-    background: #1a1a1a !important;
+    background: #303030 !important;
     text-align: left;
     z-index: 99999;
+}
+#wikibar-dock {
+    width: 1024px;
+    height: 100%;
+    margin: 0 auto;
+}
+#wikibar-dock li {
+    float: left;
+    list-style: none;
+    position: relative;
+    top:0;
+    left:0;
+}
+#wikibar-dock li a {
+    float: left;
+    position: relative;
+    display: block;
+    height: 36px;
+    top:0;
+    left:0;
+}
+#wikibar-dock li a[nomal]:hover {
+    background: rgb(100, 100, 100);
+}
+#wikibar-dock li a span {
+    float: left;
+    position: relative;
+    left:0;
+    top: 10px;
+    padding: 0 5px 0 5px;
+    font-size: 93%;
+    width: auto;
+    height: 16px;
+    color: #fff;
+    border-right: 1px solid #666;
+}
+.wikibar-logo {
+    width: 36px;
+    height: 36px;
+    background: url(/resource/wiki/index/drink2.png) no-repeat center center;
+}
+.wikibar-logo a {
+    width: 36px;
 }
