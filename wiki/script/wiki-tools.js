@@ -94,13 +94,13 @@
                             if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
                                 var data = JSON.parse(xhr.response);
                                 callback(data);
+                                return 0;
                             }
                         }
                         xhr.send(null);
-                    } else {
-                        callback(false);
                     }
                 }// end for
+                callback(false);
             }
         }
         xhr.send(null);
