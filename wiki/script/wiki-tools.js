@@ -1,37 +1,21 @@
 (function() {
     "use strict"
 
-    function loadXML(xmlString){
-        var xmlDoc=null;
-        //支持IE浏览器 
-        if(!window.DOMParser && window.ActiveXObject){   //window.DOMParser 判断是否是非ie浏览器
-            var xmlDomVersions = ['MSXML.2.DOMDocument.6.0','MSXML.2.DOMDocument.3.0','Microsoft.XMLDOM'];
-            for(var i=0;i<xmlDomVersions.length;i++){
-                xmlDoc = new ActiveXObject(xmlDomVersions[i]);
-                xmlDoc.async = false;
-                xmlDoc.loadXML(xmlString); //loadXML方法载入xml字符串
-                break;
-            }
-        }
-        //支持Mozilla浏览器
-        else if(window.DOMParser && document.implementation && document.implementation.createDocument){
-            var domParser = new  DOMParser();
-            xmlDoc = domParser.parseFromString(xmlString, 'text/xml');
-        }
-        else {
-            return null;
-        }
-        this.xmldoc = xmlDoc;
+    function loadSign(str) {
+        var el = document.createElement( 'div' );  
+        el.innerHTML = str;  
+        this.box = el;
+    }
+    loadSign.prototype.getTag = function(dom) {
+        return this.box.querySelector(dom).innerHTML;
     }
 
-    loadXML.prototype.getXmlElement = /**@method */function(domstring) {
-        return this.xmldoc.getElementsByTagName(domstring)[0].firstChild.nodeValue;
-    }
-
-    var tran = function(str) {
+    var trans = function(str) {
+        console.log(str);
         var swap;
-        swap = str.replace(/{a[\s]+href="(.+?)"}/g, "<a href=\"$1\">");
-        swap = swap.replace(/{\/a}/g, "</a>");
+        swap = str
+        .replace(/<code>/g, "<pre class=\"wiki-code\">")
+        .replace(/<\/code>/g, "</pre>")
         return swap;
     }
 
@@ -55,15 +39,16 @@
             /**@method */(function(ping) {
                 var xhr = new XMLHttpRequest();
                 xhr.open('GET', ping, true);
-                xhr.setRequestHeader("Accept","text/xml");
+                xhr.setRequestHeader("Accept","application/xhtml+xml");
                 xhr.onreadystatechange = function () {
                     if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
                         var data = xhr.response;
-                        var xmldoc= new loadXML(data);
-                        var title = xmldoc.getXmlElement("Title");
-                        var id = xmldoc.getXmlElement("ID");
-                        var content = tran(xmldoc.getXmlElement("Content"));
-                        var author = xmldoc.getXmlElement("Author");
+                        var xmldoc= new loadSign(data);
+                        var title = xmldoc.getTag("Title");
+                        var title = xmldoc.getTag("Title");
+                        var id = xmldoc.getTag("ID");
+                        var content = trans(xmldoc.getTag("Content"));
+                        var author = xmldoc.getTag("Author");
                         main.setAttribute("id", id);
                         t.innerText = title;
                         em.innerHTML = "by: " + author;

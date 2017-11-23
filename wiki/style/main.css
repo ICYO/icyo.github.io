@@ -48,3 +48,15 @@
 #wiki-body a:hover {
     text-decoration:underline;
 }
+.wiki-code {
+    /* display: block; */
+    float: left;
+    width: 96%;
+    height: auto;
+    padding: 0 2% 0 2%;
+    font-size: 13px;
+    color: white;
+    background: #303030 !important;
+    overflow-x:scroll;
+    overflow-y: hidden;
+}
