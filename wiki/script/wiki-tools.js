@@ -97,6 +97,8 @@
                             }
                         }
                         xhr.send(null);
+                    } else {
+                        callback(false);
                     }
                 }// end for
             }

@@ -8,6 +8,10 @@
             var wd = new Wdriver();
             wd.fetch(word, function(list) {
                 wikibody.innerText = "";
+                if (list == false) {
+                    wikibody.innerHTML = "<h2>未找到词条</h2>";
+                    return 0;
+                }
                 var box = new Array();
                 var path = word +"/"
                 document.querySelector("#word-title").innerText = list.title;
@@ -44,14 +48,30 @@
         var wls = document.getElementById("wordlist-search");
         swb.addEventListener("click", function(event) {
             var word = wls.value;
-            makeContent(word);
+            // makeContent(word);
+            location.href = "/wiki/#!"+word;
         })
-        wls.value = "wiki";
-        makeContent("wiki");
-        wls.addEventListener("keydown", function(event) {
-            if (event.keyCode == 13) {
-                swb.click();
+
+        function initpage() {
+            var word;
+            var hash = document.location.hash;
+            if (hash.length > 2 && hash[1] == "!") {
+                word = hash.slice(2);
             }
-        })
+            else {
+                word = "wiki";
+            }
+            wls.value = word;
+            makeContent(word);
+            wls.addEventListener("keydown", function(event) {
+                if (event.keyCode == 13) {
+                    swb.click();
+                }
+            })
+        }
+        document.body.onhashchange = function(e) {
+            initpage();
+        }
+        initpage()
     });
 }())
