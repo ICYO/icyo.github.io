@@ -46,6 +46,12 @@
             var word = wls.value;
             makeContent(word);
         })
+        wls.value = "wiki";
         makeContent("wiki");
+        wls.addEventListener("keydown", function(event) {
+            if (event.keyCode == 13) {
+                swb.click();
+            }
+        })
     });
 }())
