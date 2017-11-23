@@ -1,16 +1,14 @@
 (function() {
     "use strict"
     document.addEventListener("DOMContentLoaded", function(event) {
-        var work = new Array();
+        var wiki = new WikiContent(document.querySelector("#wiki-body"));
 
-        work.push(new WikiContent({
-            id: "about-wiki",
-            title: "有关 Joshuas's wiki",
-            content: "/wiki/home/about-wiki.txt",
-            author: [
-                "Joshuas"
-            ],
-            dom: document.querySelector("#wiki-body")
-        }));
+        wiki.put("/wiki/home/about-wiki.xml")
+        .then(function(main) {
+            return wiki.put("/wiki/home/about-wiki.xml")
+        })
+        .then(function(main) {
+            return wiki.put("/wiki/home/about-wiki.xml")
+        })
     });
 }())
