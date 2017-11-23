@@ -40,3 +40,11 @@
     padding: 0 2%;
     background: #fff;
 }
+#wiki-body a {
+    color: #0645ad;
+    text-decoration:none;
+    cursor: pointer;
+}
+#wiki-body a:hover {
+    text-decoration:underline;
+}
