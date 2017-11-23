@@ -1,0 +1,7 @@
+<Title>静态词条系统</Title>
+<ID>about-wordlist</ID>
+<Author>Joshuas</Author>
+
+<Content>
+小站的词条系统是静态的,由索引文件和词条文本组成，通过搜索词条定位内容信息
+</Content>

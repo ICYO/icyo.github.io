@@ -11,7 +11,6 @@
     }
 
     var trans = function(str) {
-        console.log(str);
         var swap;
         swap = str
         .replace(/<code>/g, "<pre class=\"wiki-code\">")
@@ -23,6 +22,7 @@
         this.dom = dom;
     }
     Content.prototype.put = function(ping) {
+        var ping = "/wiki/document/" + ping
         var that = this;
         return new Promise(function(resolve, reject) {
             var main = document.createElement("div");
@@ -68,4 +68,41 @@
         });  // end promise
     }
     window.WikiContent = Content;
+}());
+
+(function() {
+    "use strict"
+    
+    function Wdriver() {
+        this.basePath = "/wiki/document/"
+        this.indexURL = "/wiki/document/index.json";
+        this.xhr = new XMLHttpRequest();
+    }
+    Wdriver.prototype.fetch = function(word, callback) {
+        var xhr = this.xhr;
+        var basePath = this.basePath;
+        xhr.open('GET', this.indexURL, true);
+        xhr.setRequestHeader("Accept","application/json");
+        xhr.onreadystatechange = function () {
+            if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                var data = JSON.parse(xhr.response);
+                for (var wordkey in data) {
+                    // 判断是否包含
+                    if (wordkey.indexOf(word) >= 0) {
+                        xhr.open('GET', basePath+ wordkey+"/mode.json", true);
+                        xhr.onreadystatechange = function () {
+                            if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                                var data = JSON.parse(xhr.response);
+                                callback(data);
+                            }
+                        }
+                        xhr.send(null);
+                    }
+                }// end for
+            }
+        }
+        xhr.send(null);
+    }
+
+    window.Wdriver = Wdriver;
 }())

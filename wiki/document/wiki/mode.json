@@ -1,0 +1,8 @@
+{
+    "title": "Joshuas's wiki",
+    "smalltitle": "Just a little case",
+    "import":[
+        "about-wiki",
+        "about-wordlist"
+    ]
+}
